@@ -3,4 +3,4 @@ workflows:
     name: iOS Workflow
     environment:
       groups:
-        - emerge_credentials
+        - admin
