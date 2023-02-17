@@ -1,5 +1,4 @@
-
-  workflows:
+ workflows:
   ios-workflow:
     name: iOS Workflow
 
