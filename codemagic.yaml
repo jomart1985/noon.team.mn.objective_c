@@ -1,6 +1,6 @@
 workflows:
   ios-workflow:
-    - name: iOS Workflow
+    name: iOS Workflow
     environment:
     
      vars:
@@ -16,7 +16,7 @@ workflows:
       bundle_identifier: noon.team.mn
         
      scripts:
-       - name: Set up code signing settings on Xcode project
+        name: Set up code signing settings on Xcode project
         script: xcode-project use-profiles  
         
         
