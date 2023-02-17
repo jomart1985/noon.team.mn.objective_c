@@ -1,0 +1,180 @@
+
+/*@media print {*/
+
+
+
+html,body {
+		height: auto!important;
+		
+		
+		
+		overflow-y: auto!important;
+		overflow-x: auto!important;
+		
+		background: none!important;
+	}
+	
+	
+	
+#wrapper {
+		height: auto!important;
+		overflow-y: hidden!important;
+		overflow-x: hidden!important;
+		
+		display: block!important;
+                position: relative!important;
+		/* margin-bottom: 0.5em;*/
+	}
+		
+.page-break{page-break-after: always!important;}
+
+/*}*/
+
+
+.link_org{
+
+  /*color: unset!important;*/
+}
+
+a:link {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:visited {
+	font-weight: bold;
+	text-decoration: none;
+	
+}
+
+#overlay_print,#text {
+
+ display:none;
+}
+
+.showpost, .new_qts {
+    color: #000000;
+    text-align: center;
+    background-color: white;
+    padding: 5px;
+    border: solid 1px #000000;
+}
+
+p{
+ color: black!important;
+ background-color: white!important;
+ border: 1px solid black!important;	   
+}
+ 
+em {
+
+    font-style: normal;
+    
+     color: unset!important;
+} 
+
+
+ 
+
+u {
+    text-decoration: none;
+    border-bottom: 1px solid;
+    line-height: 180%;
+} 
+
+
+.bbcode_container br.gts2 {
+   display:none!important;
+}
+
+
+.bbcode_container .gts {
+    content: "\A";
+    white-space: pre;
+    display: block;
+}
+
+
+
+.bbcode_container{display: block;border-left: 1px solid silver;border-right: 2px solid silver;border-bottom: 2px solid silver;border-top: 1px solid silver;}
+
+
+.new_qts,.qts_link{text-align: center;background-color: white;padding: 5px;border: solid 1px #000000;}
+
+
+ 
+ 
+#overlay_print,#text,.header_topic{
+
+ display:none!important;
+}
+
+/*@media print {*/
+	
+	.rclickprint{
+		 
+		 display:none!important;
+		
+	}
+	
+	
+/*}*/
+
+#navbar,#up_page,.page_nav,#thread_title,.posttop{
+
+display:none;
+}
+
+
+.posttext {
+    border:0!important;
+}
+
+
+ .p1{
+border:none!important;
+}
+.window
+,#share
+,#hand
+,#read
+.warn_mess
+,.page_nav
+,#up 
+,#thread_title 
+#navbar
+,#pagenumbers
+,.tooltip4
+,.thread_title
+,.posttop
+,#copy_tooltip
+,hr
+,.selecth1FontFamily
+,.footer
+,.modal
+,.bbcode_img2
+,.header
+,.footer
+,.select_all
+,.code
+,.move.mup
+,.hash_tag
+,.randomnumber
+,.postnumber
+,.select_all_butt
+,.hashtag
+,.selectDomain
+,.selectFontFamily
+,#hand
+,#read
+,#loading
+,.loading
+{
+ display:none!important;
+}
+
+
+
+
+
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<head>
+<html style ="text-align: center;">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="HandheldFriendly" content="true">
+<meta name="MobileOptimized" content="device-width">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
+
+<title>تطبيق موسوعة نون</title>
+
+
+<script type="text/javascript" src="clientscript/detection.js"></script>
+
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+
+var currPATH = read_Setting('currPATH', "index.html", 'all');
+
+var is_time = getParameterByName("time", currPATH);
+
+if(is_time){
+
+if(currPATH.indexOf('%23') != -1) {
+
+ currPATH =  replaceUrlParam(read_Setting('currPATH', "index.html", 'all').replace("%23thread_", "#thread_").replace("%23post", "#post"), "time", new Date().getTime()).replace("#thread_", "%23thread_").replace("#post", "%23post");
+}
+else{
+
+ currPATH =  replaceUrlParam(read_Setting('currPATH', "index.html", 'all'), "time", new Date().getTime());
+}
+}
+else{
+
+ currPATH =  read_Setting('currPATH', "index.html", 'all');
+}
+
+var rhsearch = getParameterByName("rhsearch", currPATH);
+
+
+if(rhsearch){
+rhsearch = encodeURI(rhsearch);
+
+currPATH = replaceUrlParam(currPATH,"rhsearch",rhsearch);
+}
+
+
+var rhhlterm = getParameterByName("rhhlterm", currPATH);
+
+
+if(rhhlterm){
+rhhlterm = encodeURI(rhhlterm);
+
+currPATH = replaceUrlParam(currPATH,"rhhlterm",rhhlterm);
+}
+
+
+var rhsyns = getParameterByName("rhsyns", currPATH);
+
+
+if(rhsyns){
+rhsyns = encodeURI(rhsyns);
+
+currPATH = replaceUrlParam(currPATH,"rhsyns",rhsyns);
+}
+
+currPATH = currPATH.replace("#thread_", "%23thread_").replace("#post", "%23post");
+
+
+//alert(currPATH);
+
+window.location = currPATH;
+
+
+
+	
+</script>
+
+<body>
+
+
+
+</html>

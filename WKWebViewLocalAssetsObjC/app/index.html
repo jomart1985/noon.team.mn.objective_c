@@ -1,0 +1,939 @@
+<!DOCTYPE HTML>
+<html style="text-align: center;">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="MobileOptimized" content="device-width">
+	<title>موسوعة بيان نون</title>
+	
+	
+<script type="text/javascript" src="clientscript/detection.js"></script>
+	
+	 <script>
+	 load_index_page_script_header();
+	 
+	  </script>
+	
+	<meta name="theme-color" content="#000000">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#000000">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+	<style>
+	div,
+	body,
+	div,
+	span,
+	applet,
+	object,
+	iframe,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	blockquote,
+	pre,
+	a,
+	abbr,
+	acronym,
+	address,
+	big,
+	cite,
+	code,
+	del,
+	dfn,
+	em,
+	font,
+	img,
+	ins,
+	kbd,
+	q,
+	s,
+	samp,
+	small,
+	strike,
+	strong,
+	sub,
+	sup,
+	tt,
+	var,
+	u,
+	i,
+	center,
+	dl,
+	dt,
+	dd,
+	ol,
+	ul,
+	li,
+	fieldset,
+	form,
+	label,
+	legend,
+	caption,
+	tbody,
+	tfoot,
+	thead,
+	tr,
+	th,
+	td,
+	table {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		border-collapse: collapse;
+		line-height: 1.5em;
+	}
+
+
+button{
+width:100%;
+
+}
+
+	/*
+#wrapper::-webkit-scrollbar-track-piece {
+    background-color: #e8e2c4;
+    border-style: solid;
+
+    border-width: 0px;
+}
+#wrapper::-webkit-scrollbar{
+    width: 25px;
+    height: 15px;
+}
+::-webkit-scrollbar-thumb {
+    height: 68px;
+    border-radius: 50px;
+    background-color: #a6a0a0;
+}*/
+	
+	body {
+		background-image: url("clientscript/images/generic/87px.png") !important;
+		background-color: #ead5a4;
+	}
+	
+	
+html,body {
+margin:0;
+height:100%;
+overflow:hidden;
+}   
+
+	
+	
+	 #wrapper {
+         height:100%;
+         overflow-y: auto;
+         overflow-x: auto;
+
+
+      }
+	
+	
+	
+	
+
+	.dropbtn {
+		background: #c69b37;
+		/* Old browsers */
+		background: -moz-linear-gradient(-45deg, #c69b37 44%, #9b6e2b 100%);
+		/* FF3.6-15 */
+		background: -webkit-linear-gradient(-45deg, #c69b37 44%, #9b6e2b 100%);
+		/* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(135deg, #c69b37 44%, #9b6e2b 100%);
+		/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c69b37', endColorstr='#9b6e2b', GradientType=1);
+		/* IE6-9 fallback on horizontal gradient */
+		color: white;
+		padding-top: 16px;
+		padding-bottom: 16px;
+		cursor: pointer;
+		width: 100%;
+		position: relative;
+	}
+
+	.dropdown {
+		background-color: #f9f9f9;
+		position: relative;
+		display: inline-block;
+		width: 100%;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f9f9f9;
+		box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+		z-index: 1;
+		width: 100%;
+	}
+
+	.dropdown-content a {
+		color: black;
+		padding: 10px;
+		text-decoration: none;
+		display: block;
+	}
+
+	/*.dropdown:hover .dropdown-content {
+		display: block;
+	}*/
+	
+	.show {
+    display: block;
+      }
+      
+      
+        .hide {display:none;}
+    
+        .center {
+         text-align: center;
+         /*border: 3px solid green;*/
+         font-size: 20px;
+		 background: #f0f0f0;
+		 
+         }
+         
+         
+    .section{     
+   -webkit-box-shadow:0px 0px 85px 0px gold;
+-moz-box-shadow: 0px 0px 85px 0px gold;
+box-shadow: 0px 0px 85px 0px gold;
+
+    position: relative;
+    
+    }
+        .transparent2 {
+    background-color: rgba(213, 194, 149, 0.45);
+    font-size: 110%;
+    padding: 4px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 0 auto 20px;
+    border: 1px solid #000000;
+}
+
+	</style>
+	
+	
+</head>
+
+<body>
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	 <script>
+	
+	        var res ,pageName; 
+	 
+	 if(read_Setting("lang", "null", "all")!="null"){
+	 
+	 
+	 
+           append_index();
+
+
+         }
+         else{
+         
+     change_lang();
+         
+         }
+
+	 
+	 
+	
+	 
+	 $(document).ready(function() {
+	
+	
+	
+	$(window).unload(function() {
+ setTimeout(function() {
+
+        document.getElementById("loading").style.display = "none";
+    }, 0);
+});
+            
+
+    
+        
+    	$("html,body").bind('dragstart selectstart', function(e) {
+		e.preventDefault();
+		return false;
+	});
+	
+ grab("#wrapper", "grab", "y");
+	 
+	 
+	 
+        
+       $(document).on("click", function(event){
+       
+       if(is_grabbing == true) return false;
+        var $trigger = $(".dropdown");
+
+        if($trigger !== event.target && !$trigger.has(event.target).length){
+           $("#myDropdown").removeClass("show");
+        }            
+    });
+	 
+	 
+	   $(document).on("click",".dropdown",function(event){
+   
+           if(is_grabbing == true) return false;
+           event.stopPropagation();
+             $(this).find("#myDropdown").toggleClass( "show" );
+          if($(this).find("#myDropdown").hasClass( "show" )){
+                
+              document.getElementById("dropdown").scrollIntoView();
+          }
+           
+        });
+    
+    
+    
+   if(location.href.indexOf("http://localhost:"+location.port) !=-1){
+ 
+      $("#onlineEn").addClass("hide");
+      }
+      else if(location.href.indexOf("file:") !=-1){
+
+       
+        $("#onlineEn").addClass("hide");
+      }
+      else if(location.href.indexOf("http://") !=-1){
+
+         $("#offlineEn").addClass("hide");
+      }
+      else if(location.href.indexOf("https://") !=-1){
+
+
+          $("#offlineEn").addClass("hide");
+      }
+       
+    
+    
+    
+    	 
+	    if (typeof Androidd !== 'undefined'){
+      
+      var Btype= Androidd.getSharP("SP_WEBVIEW_TYPE","null");
+      
+      document.getElementById("wvB").style.display = "inline-block";
+      
+      
+      
+      if(Androidd.get_api_level()>= 29){
+         document.getElementById("change_webview").style.display = "none";
+      }
+      
+      if(Androidd.get_api_level()<19 && Btype =="nocross"){
+         document.getElementById("choss").style.display = "none";
+         document.getElementById("dropbtn").style.display = "none";
+         document.getElementById("enter").style.display = "block";
+      
+      }
+      
+      
+   
+      
+      
+      if(Btype =="cross"){
+      
+      
+      document.getElementById("Btype").innerHTML = you_are_using_cross_browser;
+      
+      }
+      else{
+      
+      document.getElementById("Btype").innerHTML = you_are_using_native_browser;
+      
+      }
+      
+      
+      document.getElementById("Atype").innerHTML = andro_version+" "+Androidd.GoAver(null);
+      
+      document.getElementById("Ctype").innerHTML = cpu_device+" "+Androidd.GoArch(null);
+      
+      
+      }
+
+                        $("html").toggle().hide().show(0);
+
+      
+                        save_Setting("currPATH", window.location.toString().split('app/').pop(), "all");  
+        
+        
+  }); 
+	 
+	
+	 
+
+    
+ 
+      
+      function change_wv(){
+      if(is_grabbing == true) return false;
+       Androidd.change_WV();
+      
+      }
+      
+      function go(string){
+       pageName =  window.location.toString();
+      if(is_grabbing == true) return false;
+      document.getElementById("loading").style.display = 'block';
+      var param = window.location.toString().split('index.html').pop()
+
+
+  if (pageName.indexOf("#t") !== -1){
+  
+  }
+  else{
+   param="";
+  }
+      
+
+if(string=="help"){
+window.location = "help.html"+param;
+}
+
+if(string=="down"){
+window.location = "mawso3a.html"+param;
+}
+if(string=="privacy"){
+window.location = "privacy.html"+param;
+}
+
+
+      
+
+
+
+
+return false;
+      }
+      	 
+	   function go_ext(link){
+      
+      if(is_grabbing == true) return false;
+      if (typeof Androidd !== 'undefined') {
+      
+      var href = link.href;
+      //alert( href);
+      
+      Androidd.go_ext(href, "null");
+      
+      return false;
+      }
+      
+      } 
+	 
+      
+      
+      function go_extract(){
+      if(is_grabbing == true) return false;
+          Androidd.go_extract();
+      }
+      
+      
+    
+	 
+	 function select_lang(lang){
+	 
+	 if(is_grabbing == true) return false;
+
+ document.getElementById("loading").style.display = "block";
+	 save_Setting("lang", lang, "all");
+
+
+setTimeout(function () {
+				
+	location.reload();
+			}, 100)
+
+	
+	 }
+	 
+function change_lang(){
+
+if(is_grabbing == true) return false;
+      var model_lang =  '<div id="show_img" class="show_img"><div class="modal-content">'+
+
+'                                              <div style="font-size:20px; color:white" dir ="rtl">اختر لغة التطبيق :</div>'+
+'                                              <div style="font-size:20px; color:white" dir ="ltr">Choose the language of the app :</div>'+	
+'	                                       <div style="font-size:20px" class="dropdown" id="dropdown">' + 
+
+'							<button style="font-size:20px" id="dropbtn" class="dropbtn">اختيار Select</button>' + 
+'							<div style="font-size:20px" id="myDropdown" class="dropdown-content">' + 
+'								<a onclick="select_lang(\'ar\')">اللغة العربية</a>' + 
+'								<hr>' + 
+'								<a onclick="select_lang(\'en\')">English language</a>' + 
+'							</div>' + 
+'						</div>' + 
+'                           </div>';
+
+	
+	  
+	    if (typeof Androidd !== 'undefined'){
+	    
+	              Androidd.lang_dailog();
+	    
+	    }
+		else if(typeof window.webkit != 'undefined') {
+
+          var obj = {event: "lang_change", arg: null};
+	      window.webkit.messageHandlers.observer.postMessage(JSON.stringify(obj));
+
+
+        }
+		else{
+	    	  $(model_lang).appendTo('body');
+	    }
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+}	 
+	 
+
+
+
+function change_mode(){
+
+if(typeof window.webkit != 'undefined') {
+
+          var obj = {event: "mode_type", arg: null};
+	      window.webkit.messageHandlers.observer.postMessage(JSON.stringify(obj));
+
+}
+
+
+}
+
+function go_port(){
+if(typeof window.webkit != 'undefined') {
+
+          var obj = {event: "go_port", arg: null};
+	      window.webkit.messageHandlers.observer.postMessage(JSON.stringify(obj));
+
+}
+}
+
+
+
+
+
+
+         
+         	
+ 
+         
+         function Redirect(value){
+         
+         pageName =  window.location.toString();
+        
+        
+         if (value === "0"){
+         document.getElementById("loading").style.display = 'block';
+         if (pageName.indexOf("#t") !== -1){
+         
+         res =  decodeURIComponent(pageName.replace("index.html", "").replace("#t=", "").replace("&", "?"));
+         window.location = res;
+         }
+         else{
+
+         res = decodeURIComponent("index.php.htm");
+         window.location = res;
+
+         }
+        
+        }
+         if (value === "1"){
+        pageName = removeParam('time', pageName.replace("%23thread_", "#thread_").replace("%23post", "#post")).replace("#thread_", "%23thread_").replace("#post", "%23post");
+
+         document.getElementById("loading").style.display = 'block';
+          save_Setting("style_type", "jq", "all");
+         if (pageName.indexOf("#t") !== -1){
+         
+         res = pageName.replace("index.html", "main.html");
+         window.location = res;
+         }
+         else{
+
+         res = "main.html#t=index.php.htm";
+        window.location = res;
+
+         }
+        
+         
+         
+         
+         }
+         else if(value === "2"){
+         save_Setting("style_type", "adobe", "all");
+         pageName = removeParam('time', pageName.replace("%23thread_", "#thread_").replace("%23post", "#post")).replace("#thread_", "%23thread_").replace("#post", "%23post");
+         document.getElementById("loading").style.display = 'block';
+
+         
+         if (pageName.indexOf("#t") !== -1){
+         
+         res = pageName.replace("index.html", "main.html");
+        window.location = res;
+         }
+         else{
+
+
+         res = "main.html#t=index.php.htm";
+        window.location = res;
+
+         }
+         
+         
+         
+         
+         }
+          
+
+       
+       
+         }
+         
+       
+
+
+
+
+
+
+
+
+
+
+	 
+function append_index(){
+
+	 var index = '' + 
+'<div class="grabbing" id="wrapper" style="width:100%">' + 
+'		<table dir="rtl" border="0" width="100%">' + 
+'			<tbody>' + 
+'				<tr height="43">' + 
+'					<td style="background:url(clientscript/images/borders/tr.png) right top no-repeat;" width="0"></td>' + 
+'					<td style="background:url(clientscript/images/borders/t.png) top repeat-x;"></td>' + 
+'					<td style="background:url(clientscript/images/borders/tl.png) left top no-repeat;" width="0"></td>' + 
+'				</tr>' + 
+'				<tr valign="baseline">' + 
+'					<td style="background:url(clientscript/images/borders/r.png) right center repeat-y;" width="7"></td>' + 
+'					<td id="post_message">' + 
+'						<img class="shadowfilter" src="clientscript/images/generic/bsm.png" width="270px">' + 
+'						<br>' + 
+'						<br>' + 
+'						<a  style="" dir ="'+dir+'" href="./index.html"><img class="shadowfilter" src="clientscript/images/generic/noon.png" width="100px"></a>' + 
+'						<br>' + 
+'						<br>' + 
+
+
+'<div class="transparent2">' + 
+'						<div style="font-size: 110%; padding:4px;font-weight:bold; border-radius: 10px;"> ۞۞۞۞۞۞۞۞۞۞۞ <br>' + 
+'							<span  dir ="'+dir+'">'+app_name+'</span>' + 
+'							<br> ۞۞۞۞۞۞۞۞۞۞۞ <br>' + 
+'						' + 
+                                                             last_update + 
+'                                                      	<br>' +
+'	04_01_2023' +
+'                                                      <br> ' + 
+'' + 
+'							' + 
+'							<br>' + 
+'							<span style="color:red" id="offlineEn"  dir ="'+dir+'">'+Offline_Version+'<br></span>' + 
+'							<span style="color:green" id="onlineEn"  dir ="'+dir+'">'+Online_Version+'<br></span>' + 
+'							<br>' + 
+'							<span style="font-weight: bold; font-size: 110%; color : balck">' + 
+'								<span  dir ="'+dir+'">'+welcome+'</span>' + 
+'							</span>' + 
+'						</div>' + 
+
+
+
+
+
+
+
+
+'						' + 
+'						' + 
+'						<span id="choss" style="font-weight: bold; font-size: 130%; color : blue;">' + 
+'							<span dir ="'+dir+'">'+choose_style+'</span>' + 
+'							<br>' + 
+'						</span>' + 
+
+
+
+
+
+'						<a id="enter" style="display:none;font-size: 130%;" dir ="'+dir+'" href="./index.php.htm"> '+click_here_enter_maw+' </a>' + 
+
+'						<br>' + 
+
+
+
+
+
+'						<div style="font-size:20px" class="dropdown" id="dropdown">' + 
+'							<button style="font-size:20px" id="dropbtn" class="dropbtn">'+choose+'</button>' + 
+'							<div style="font-size:20px" id="myDropdown" class="dropdown-content">' + 
+'								<a onclick="Redirect(\'0\')" >'+no_style+'</a>' + 
+'								<hr>' + 
+'								<a onclick="Redirect(\'1\')" >'+jquery_style+'</a>' + 
+'								<hr>' + 
+'								<a onclick="Redirect(\'2\')">'+adobe_style+'</a>' + 
+'							</div>' + 
+'						</div>' + 
+
+'						<br>' + 
+
+'                       <br>' +
+
+'                                              <div>'+
+'                                               <button class="center" onclick="change_lang();">'+change_lang_butt+'</button>' +
+'                                              </div>'+
+
+'                                              <div  id="style_butt" style="display:none;">'+
+'                                               <button class="center" onclick="change_mode();">'+change_mode_butt+'</button>' +
+'                                              </div>'+
+
+'                                              <div  id="port_butt" style="display:none;">'+
+'                                               <button class="center" onclick="go_port();">'+port_butt+'</button>' +
+'                                              </div>'+
+'                                              <div  id="instru_butt" style="display:none;">'+
+
+'                                               <button class="center" onclick="go_intru();">'+intru_butt+'</button>' +
+'                                              </div>'+
+
+
+
+'                                              <div  id="info_butt" style="display:none;">'+
+'                                               <button class="center" onclick="toggle_info();">'+device_info+'</button>' +
+'                                              </div>'+
+
+'                        <div id="myinfo" dir ="'+dir+'" style = "display:none;border: 3px solid green;">'+
+
+'                         </div>' +
+
+
+'                        <br>' +
+
+
+'						<div><a  dir ="'+dir+'" href="" onclick="javascript:go(\'down\');return false;" class= "" style="text-decoration: none; color:green;font-size: 130%;">'+downlod_link+'</a></div>' + 
+'						<br>' + 
+'						<div><a  dir ="'+dir+'" href="" onclick="javascript:go(\'help\');return false;" class= "" style="text-decoration: none; color:green;font-size: 130%;">'+instruction_link+'</a></div>' + 
+'						<br>' + 
+'						<div><a  dir ="'+dir+'" href="" onclick="javascript:go(\'privacy\');return false;" class= "" style="text-decoration: none; color:green;font-size: 130%;">'+privacy_link+'</a></div>' +
+
+
+
+
+
+'						<br>' + 
+'						<div id="wvB" style="display:none;">' + 
+'						  <div id="change_webview" >' + 
+'							<button  class="center" onclick="change_wv();">'+change_browser+'</button>' + 
+'							<br>' + 
+'							<br>' + 
+'					      </div>' + 
+'							<button class="center" onclick="go_extract();">'+extract_maw+'</button>' + 
+'							<br>' + 
+'							<br>' + 
+
+'<button onclick="myFunction()">'+device_info+'</button>'+
+
+'                        <div id="myDIV" style = "display:none">'+
+'							<div id="Btype">' + 
+'							</div>' + 
+'							<div id="Atype">' + 
+'							</div>' + 
+'							<div id="Ctype">' + 
+'							</div>' + 
+'						</div>' + 
+'						</div>' + 
+
+'						<div style="font-weight:bold; border-radius: 10px;">' + 
+'							<span dir="rtl" style="font-size: 95%; font-weight: bold; color : black">' + 
+'								<center>' + 
+'									<div id="onlinev" style="text-decoration: none;">' +
+'										<span id="onlinevAr" dir ="'+dir+'" style="font-size: 110%; font-weight: bold; color : black"> '+to_view_app_online +
+'										</span>' + 
+/*'										<a onclick="go_ext(this)" style="text-decoration: none;" href="https://noon-group.org/app" target="_blank">https://noon-group.org/app</a>' + 
+'										<br><br>' + 
+'										<a onclick="go_ext(this)" style="text-decoration: none;" href="https://bayan-noon.org/app" target="_blank">https://bayan-noon.org/app</a>' + 
+*/
+'										<a onclick="go_ext(this)" style="text-decoration: none;" href="https://noon-team.org/app" target="_blank">https://noon-team.org/app</a>' +
+//'										<a onclick="go_ext(this)" style="text-decoration: none;" href="https://bayan-noon.com/app" target="_blank">https://bayan-noon.com/app</a>' + 
+'									</div>' + 
+'								</center>' + 
+'							</span></div>' + 
+
+'<div style ="display:none;">'+
+'						<br>' + 
+'						<span dir ="'+dir+'" style="font-size:20px" >'+noon_lib_description+'</span>' + 
+'						' + 
+'						<br>' + 
+'						<img src="clientscript/images/generic/noonlib.png" width="270px">' + 
+'						<br>' + 
+'						<br>' + 
+'' + 
+'						<a style="display: inline-block;text-decoration: none; padding: 10px; color: #FFFFFF; background-color: #008080; border: outset 1px #adff2f;" onclick="go_ext(this)"  href="https://www.noonlib.com/" target="_blank">'+noon_lib_butt+'</a>' + 
+'' + 
+'						<br>' + 
+'						<br>' + 
+'						<br>' + 
+'						<a onclick="go_ext(this)" style="display: inline-block; text-decoration: none; padding: 10px; color: #FFFFFF; background-color: #008080; border: outset 1px #adff2f;" href="https://www.noonlib.com/tadabar/" target="_blank">'+TADABAR_butt+'<br></a>' + 
+'						<br>' + 
+'						<br>' + 
+'						<br>' + 
+'						<a onclick="go_ext(this)" style="display: inline-block;  text-decoration: none; padding: 10px; color: #FFFFFF; background-color: #008080; border: outset 1px #adff2f;" href="https://www.noonlib.com/hodhod-app/" target="_blank">'+hodhod_butt+'</a>' + 
+'						<br>' + 
+'						<br>' + 
+'						<br>' + 
+'						<a onclick="go_ext(this)" style="display: inline-block;  text-decoration: none; padding: 10px; color: #FFFFFF; background-color: #008080; border: outset 1px #adff2f;" href="https://www.noonlib.com/albayan/" target="_blank">'+mawso3a_bayan_butt+'</a>' + 
+'						<br>' + 
+'						<br>' + 
+
+
+
+'<b><div dir ="'+dir+'">'+contact_us+'</div>' + 
+
+'<br><a class="threadtitle" onclick="go_ext(this)" style="text-decoration: none;"  href="http://m.me/mrpasserby" target="_blank">'+contact_me_messger+'</a><br>'+
+'<a class="threadtitle" onclick="go_ext(this)" style="text-decoration: none;"  href="https://www.facebook.com/mrpasserby" target="_blank">'+go_to_my_fb_page+'</a><br>'+
+' <span class="threadtitle"><a onclick="go_ext(this)" style="text-decoration: none;" target="_blank" href="https://www.mahdialumma.com/showthread.php?t=21581">'+contact_me_on_vb+'</a></span></b>' + 
+
+'	</div>' +
+'	</div>' +
+
+
+'					</td>' + 
+'					<td style="background:url(clientscript/images/borders/l.png) left center repeat-y;"></td>' + 
+'				</tr>' + 
+'				<tr height="43">' + 
+'					<td style="background:url(clientscript/images/borders/br.png) right bottom no-repeat;" width="42"></td>' + 
+'					<td style="background:url(clientscript/images/borders/b.png) bottom repeat-x;"></td>' + 
+'					<td style="background:url(clientscript/images/borders/bl.png) left bottom no-repeat;" width="42"></td>' + 
+'				</tr>' + 
+'			</tbody>' + 
+'		</table>' + 
+'	</div>' + 
+'';
+    
+    
+    
+            $(index).appendTo('body');
+            
+             $('#show_img').remove();
+
+
+}	 
+	 
+	 
+
+	
+	
+
+	 
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}	 
+
+function toggle_info() {
+
+  var x = document.getElementById("myinfo");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}	
+
+function  go_intru(){
+    
+    if(typeof window.webkit != 'undefined') {
+
+              var obj = {event: "go_intru", arg: null};
+              window.webkit.messageHandlers.observer.postMessage(JSON.stringify(obj));
+
+    }
+    
+}
+
+
+function show_webkit_info(value,port){
+
+$('#style_butt').show();
+$('#info_butt').show();
+$('#port_butt').show();
+$('#instru_butt').show();
+
+
+    
+   if(port !="null"){
+       document.getElementById("myinfo").innerHTML =
+       you_are_using_native_browser+"<br>"+
+            cpu_device+"<br>"+value+
+            "<br>"+server_state_on+port;
+   
+   }
+   else{
+       
+       document.getElementById("myinfo").innerHTML =
+       you_are_using_native_browser+"<br>"+
+            cpu_device+"<br>"+value+
+            "<br>"+server_state_off;
+            
+   }
+         
+    
+     
+}
+
+        
+ 
+ load_index_page_script_footer();
+
+ 
+window.scrollBy(1, 1); window.scrollBy(-1, -1);	 
+
+
+
+
+	 </script>
+	
+	
+	
+	
+</body>
+
+</html>
