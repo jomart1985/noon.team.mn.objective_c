@@ -18,4 +18,11 @@ workflows:
      scripts:
         name: Set up code signing settings on Xcode project
         script: xcode-project use-profiles  
-  
+        
+        
+        
+  artifacts:
+  - build/ios/ipa/*.ipa
+  - /tmp/xcodebuild_logs/*.log
+  - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+  - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
