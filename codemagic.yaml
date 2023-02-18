@@ -8,8 +8,6 @@
         distribution_type: app_store
         bundle_identifier: noon.team.mn
     scripts:
-     - script: keychain initilize
-     - script: keychain add-certificates
      - script: xcode-project use-profiles
      
    
