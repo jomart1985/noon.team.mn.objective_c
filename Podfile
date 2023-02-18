@@ -23,3 +23,14 @@ post_install do |installer|
     end
   end
 end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['DEVELOPMENT_TEAM'] = '<TEAM_ID>'
+      
+      # or disable code signing - seems to also work...
+      config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+    end
+  end
+end
