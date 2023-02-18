@@ -10,7 +10,6 @@
     scripts:
      - script: keychain initilize
      - script: keychain add-certificates
-	 
      - script: xcode-project use-profiles
      
    
