@@ -19,7 +19,7 @@
         script: | 
           pod install
       - name: Set up provisioning profiles settings on Xcode project
-        script: xcode-project use-profiles --project WKWebViewLocalAssetsObjC/*.xcodeproj
+        script: xcode-project use-profiles
       - name: Increment build number
         script: | 
           cd $CM_BUILD_DIR
@@ -35,8 +35,8 @@
       - /tmp/xcodebuild_logs/*.log
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
-   
-
+ 
+  
   
   
   
