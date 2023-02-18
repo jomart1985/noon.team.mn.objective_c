@@ -22,15 +22,14 @@ post_install do |installer|
       config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
     end
   end
-end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
+   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['DEVELOPMENT_TEAM'] = '<TEAM_ID>'
+      config.build_settings['DEVELOPMENT_TEAM'] = 'V25LVKC5NA'
       
       # or disable code signing - seems to also work...
-      config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+     # config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
     end
   end
+  
 end
+
