@@ -238,12 +238,12 @@ function update_domain(elem) {
     if (!elem) {
         index = read_Setting("domaintype", "2", "all");
         select_domain.selectedIndex = index;
-		
-	var searchtext = select_domain;
+        
+    var searchtext = select_domain;
     $(searchtext).children().remove("optgroup[hidden]");
 
 
-		
+        
     } else {
         if (window.location == window.parent.location) {
             $('#loading').show()
