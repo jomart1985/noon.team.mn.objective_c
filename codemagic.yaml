@@ -40,7 +40,7 @@
       app_store_connect: CodemagicSign
     publishing:
       app_store_connect:
-      auth: integration 
+       auth: integration 
 
 
   
