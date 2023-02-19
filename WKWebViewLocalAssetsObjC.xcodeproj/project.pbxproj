@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,6 @@
 		CFDAD44D298FF14D006CBC53 /* img in Resources */ = {isa = PBXBuildFile; fileRef = CFDAD44C298FF14D006CBC53 /* img */; };
 		CFDAD459299030B3006CBC53 /* DropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDAD458299030B3006CBC53 /* DropDownMenu.m */; };
 		CFDEFF14299CA03800F0801E /* noon_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = CFDEFF13299CA03700F0801E /* noon_circle.png */; };
-		CFDEFF1929A1562C00F0801E /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDEFF1829A1562C00F0801E /* UserNotifications.framework */; };
 		CFE549102993F0F4006734F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86EDE9962233A9E7000F1B7C /* Assets.xcassets */; };
 		CFE549152993F875006734F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86EDE9982233A9E7000F1B7C /* LaunchScreen.storyboard */; };
 		CFE5492929940FA7006734F2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFE5492B29940FA7006734F2 /* InfoPlist.strings */; };
@@ -95,9 +94,6 @@
 		CFDAD457299030B2006CBC53 /* DropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownMenu.h; sourceTree = "<group>"; };
 		CFDAD458299030B3006CBC53 /* DropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownMenu.m; sourceTree = "<group>"; };
 		CFDEFF13299CA03700F0801E /* noon_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noon_circle.png; sourceTree = "<group>"; };
-		CFDEFF1629A1557000F0801E /* WKWebViewLocalAssetsObjC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WKWebViewLocalAssetsObjC.entitlements; sourceTree = "<group>"; };
-		CFDEFF1729A1559E00F0801E /* WKWebViewLocalAssetsObjCRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WKWebViewLocalAssetsObjCRelease.entitlements; sourceTree = "<group>"; };
-		CFDEFF1829A1562C00F0801E /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		CFE5492A29940FA7006734F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CFE5492C29940FA9006734F2 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CFE549302994108C006734F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -174,7 +170,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFDEFF1929A1562C00F0801E /* UserNotifications.framework in Frameworks */,
 				CFB83A00298C249600FE111E /* WebKit.framework in Frameworks */,
 				767D1D7D66C6881A2E2A5849 /* Pods_WKWebViewLocalAssetsObjC.framework in Frameworks */,
 			);
@@ -205,8 +200,6 @@
 		86EDE98C2233A9E3000F1B7C /* WKWebViewLocalAssetsObjC */ = {
 			isa = PBXGroup;
 			children = (
-				CFDEFF1729A1559E00F0801E /* WKWebViewLocalAssetsObjCRelease.entitlements */,
-				CFDEFF1629A1557000F0801E /* WKWebViewLocalAssetsObjC.entitlements */,
 				CFF780392996B0300002A14D /* HTTP */,
 				CFF780202996B02A0002A14D /* Logging */,
 				CFF7801C2996B0210002A14D /* TCP */,
@@ -242,7 +235,6 @@
 		CFB839FE298C249600FE111E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CFDEFF1829A1562C00F0801E /* UserNotifications.framework */,
 				CFB839FF298C249600FE111E /* WebKit.framework */,
 				C48CCDA5213A4A695765C6BF /* Pods_WKWebViewLocalAssetsObjC.framework */,
 			);
@@ -385,7 +377,7 @@
 				86EDE9872233A9E3000F1B7C /* Frameworks */,
 				86EDE9882233A9E3000F1B7C /* Resources */,
 				270E0D45A9BD4D1ACAF6DFF8 /* [CP] Embed Pods Frameworks */,
-				CFDEFF1529A1066500F0801E /* ShellScript */,
+				CFF78065299A69A50002A14D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -505,25 +497,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CFDEFF1529A1066500F0801E /* ShellScript */ = {
+		CFF78065299A69A50002A14D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)\n",
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}\n",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)\n",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = " ${PODS_ROOT}/FirebaseCrashlytics/run\n";
+			shellScript = " ${PODS_ROOT}/FirebaseCrashlytics/run\n \n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -646,7 +636,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -710,7 +699,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -724,7 +712,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -735,12 +722,8 @@
 			baseConfigurationReference = F437ECEF945C15F674A09A8F /* Pods-WKWebViewLocalAssetsObjC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = WKWebViewLocalAssetsObjC/WKWebViewLocalAssetsObjC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = V25LVKC5NA;
-				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WKWebViewLocalAssetsObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -748,8 +731,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = noon.team.mn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "mawso3a noon";
-				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -759,11 +740,7 @@
 			baseConfigurationReference = 31B7FAF014B836C8659BF1CD /* Pods-WKWebViewLocalAssetsObjC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = WKWebViewLocalAssetsObjC/WKWebViewLocalAssetsObjCRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = V25LVKC5NA;
-				ENABLE_BITCODE = NO;
+				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WKWebViewLocalAssetsObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -771,8 +748,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = noon.team.mn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "mawso3a noon";
-				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

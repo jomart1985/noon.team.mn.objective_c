@@ -18,11 +18,9 @@ HTTPServer *httpServer;
 
 @implementation AppDelegate
 
-NSString *const kGCMMessageIDKey = @"gcm.message_id";
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-   
+    [FIRApp configure];
     
     // Configure our logging framework.
     // To keep things simple and fast, we're just going to log to the Xcode console.
@@ -106,97 +104,15 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     }
     */
     
-   
-    [FIRApp configure];
-    // [END configure_firebase]
-
-    // [START set_messaging_delegate]
-    [FIRMessaging messaging].delegate = self;
-    // [END set_messaging_delegate]
-
-    // Register for remote notifications. This shows a permission dialog on first run, to
-    // show the dialog at a more appropriate time move this registration accordingly.
-    // [START register_for_notifications]
-
-    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
-    UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert |
-        UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
-    [[UNUserNotificationCenter currentNotificationCenter]
-        requestAuthorizationWithOptions:authOptions
-        completionHandler:^(BOOL granted, NSError * _Nullable error) {
-          // ...
-        }];
-
-    [application registerForRemoteNotifications];
-    // [END register_for_notifications]
+    UNUserNotificationCenter *center = [UNUserNotificationCenter          currentNotificationCenter];
+     center.delegate = self;
+     
+     
+    
     
     
     return YES;
 }
-
-
-// [START receive_message]
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-    fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-  // If you are receiving a notification message while your app is in the background,
-  // this callback will not be fired till the user taps on the notification launching the application.
-  // TODO: Handle data of notification
-
-  // With swizzling disabled you must let Messaging know about the message, for Analytics
-  // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
-
-  // [START_EXCLUDE]
-  // Print message ID.
-  if (userInfo[kGCMMessageIDKey]) {
-    NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
-  }
-  // [END_EXCLUDE]
-
-  // Print full message.
-  NSLog(@"%@", userInfo);
-
-  completionHandler(UIBackgroundFetchResultNewData);
-}
-
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-  // If you are receiving a notification message while your app is in the background,
-  // this callback will not be fired till the user taps on the notification launching the application.
-  // TODO: Handle data of notification
-
-  // With swizzling disabled you must let Messaging know about the message, for Analytics
-  // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
-
-  // [START_EXCLUDE]
-  // Print message ID.
-  if (userInfo[kGCMMessageIDKey]) {
-    NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
-  }
-  // [END_EXCLUDE]
-
-  // Print full message.
-  NSLog(@"%@", userInfo);
-}
-
-
-
-- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
-    NSLog(@"FCM registration token: %@", fcmToken);
-    // Notify about received token.
-    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:
-     @"FCMToken" object:nil userInfo:dataDict];
-    // TODO: If necessary send token to application server.
-    // Note: This callback is fired at each app startup and whenever a new token is generated.
-}
-
-
-// With "FirebaseAppDelegateProxyEnabled": NO
-- (void)application:(UIApplication *)application
-    didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    [FIRMessaging messaging].APNSToken = deviceToken;
-}
-
 
 - (bool)checkServer :(NSString *)port{
     //[DDLog addLogger:[DDTTYLogger sharedInstance]];
@@ -293,10 +209,24 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
    
 }
 
+
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+
+    
+    
+    completionHandler(UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge);
+    
+    
+    
+    
+}
+
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void (^)(void))completionHandler{
     
+    
+    NSLog( @"Handle push from foreground" );
     
     NSString * userInfo = response.notification.request.content.userInfo[@"path"];
            if (userInfo) {
@@ -335,37 +265,12 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     [notificationAlert show];*/
                
            }
+   
     
- 
-}
+    
+ }
 
--(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification:(UNNotificationResponse *)response withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
 
-    
-    
-    NSDictionary *userInfo = notification.request.content.userInfo;
-
-    // With swizzling disabled you must let Messaging know about the message, for Analytics
-    // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
-
-    // [START_EXCLUDE]
-    // Print message ID.
-    if (userInfo[kGCMMessageIDKey]) {
-      NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
-    }
-    // [END_EXCLUDE]
-
-    // Print full message.
-    NSLog(@"%@", userInfo);
-
-  
-    
-    completionHandler(UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge);
-      
-    
-    
-    
-}
 
 
 
@@ -381,15 +286,6 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
     [httpServer stop];
 }
-
-
-
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-  NSLog(@"Unable to register for remote notifications: %@", error);
-}
-
-
-
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
