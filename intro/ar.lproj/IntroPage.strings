@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; configuration.title = "save"; ObjectID = "XSQ-xv-W1F"; */
+"XSQ-xv-W1F.configuration.title" = "save";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "XSQ-xv-W1F"; */
+"XSQ-xv-W1F.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "chang prot server"; ObjectID = "aWx-XZ-ed8"; */
+"aWx-XZ-ed8.text" = "chang prot server";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "av4-ck-byx"; */
+"av4-ck-byx.text" = "Label";
+
+/* Class = "UILabel"; text = "Server is disabled now!"; ObjectID = "wHc-vN-mwV"; */
+"wHc-vN-mwV.text" = "Server is disabled now!";
