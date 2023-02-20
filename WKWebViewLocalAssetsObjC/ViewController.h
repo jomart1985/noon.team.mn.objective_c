@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ViewController : UIViewController <WKScriptMessageHandler,WKUIDelegate,WKNavigationDelegate, MFMailComposeViewControllerDelegate>
 @property (nonatomic, assign) BOOL showAlertEnabled;
 @property (nonatomic, assign) BOOL showAlertEnabled2;
+- (void)save_sett;
 @end
 
 

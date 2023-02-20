@@ -15,10 +15,15 @@
 #import "LocalizeHelper.h"
 
 
+@import UserNotifications;
 @import FirebaseCore;
 @import FirebaseMessaging;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate  ,UIDocumentInteractionControllerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@import UIKit;
+
+@protocol FIRMessagingDelegate;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate  ,UIDocumentInteractionControllerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,FIRMessagingDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

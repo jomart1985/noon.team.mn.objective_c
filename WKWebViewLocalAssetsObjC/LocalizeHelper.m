@@ -140,7 +140,7 @@ static NSBundle* myBundle = nil;
         
         //port  = [NSString stringWithFormat:@"http://localhost:%@/%@", portn,name];
         
-        port  = [NSString stringWithFormat:@"http://192.168.1.108:%@/app/%@%@", @"80",name,@".html"];
+        port  = [NSString stringWithFormat:@"http://192.168.1.108:%@/app/%@%@", @"4040",name,@".html"];
         urlstring = port;
         NSURL *nsurl=[NSURL URLWithString:urlstring];
         NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];

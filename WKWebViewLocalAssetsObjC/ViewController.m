@@ -120,12 +120,19 @@ Intro *intro;
                 dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 0.8);
                 dispatch_after(delay, dispatch_get_main_queue(), ^(void){
                    
+                    if([[LocalizeHelper readUserDefaults:@"show_intro"] isEqual:@"null"]){
+                        
+                        [intro showIntroWithCrossDissolve];
+                        intro.show_intro = true;
+                        [LocalizeHelper go_to_vc:intro];
+                    }
+                    else{
                         
                         ViewController*vc = [[ViewController alloc] init];
                         //vc.showAlertEnabled= true;
                         [LocalizeHelper go_to_vc:vc];
                         //[LocalizeHelper go_to_vc:controler];
-                    
+                    }
                 });
                 
             }
@@ -158,7 +165,13 @@ Intro *intro;
                    
                   
                     
-                 
+                    if([[LocalizeHelper readUserDefaults:@"show_intro"] isEqual:@"null"]){
+                        
+                        [intro showIntroWithCrossDissolve];
+                        intro.show_intro = true;
+                        [LocalizeHelper go_to_vc:intro];
+                    }
+                    else{
                         
                         
                         //[LocalizeHelper go_to_vc:controler];
@@ -167,7 +180,8 @@ Intro *intro;
                         //vc.showAlertEnabled= true;
                         [LocalizeHelper go_to_vc:vc];
                         
-                   
+                    }
+                       
                      
                   
                     
