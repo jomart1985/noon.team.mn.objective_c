@@ -2692,6 +2692,27 @@ return self;
           
           
           
+          
+          if([event isEqualToString:@"permission"]){
+              
+              
+              UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+
+           UNAuthorizationOptions options = UNAuthorizationOptionAlert +UNAuthorizationOptionSound;
+           
+           [center requestAuthorizationWithOptions:options        completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                   isGrantedNotificationAccess = granted;
+               
+               
+           }];
+              
+              ViewController*vc = [[ViewController alloc] init];
+              //vc.showAlertEnabled= true;
+              [LocalizeHelper go_to_vc:vc];
+              
+              
+          }
+          
           if([event isEqualToString:@"print_done"]){
               
           

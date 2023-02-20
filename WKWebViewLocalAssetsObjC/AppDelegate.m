@@ -15,14 +15,16 @@
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 HTTPServer *httpServer;
+NSString *const kGCMMessageIDKey = @"gcm.message_id";
+
 
 @implementation AppDelegate
 
-NSString *const kGCMMessageIDKey = @"gcm.message_id";
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-   
+    
     
     // Configure our logging framework.
     // To keep things simple and fast, we're just going to log to the Xcode console.
@@ -90,7 +92,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     
    /* [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
+   if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
         {
             [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
         }
@@ -103,100 +105,25 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     else
     {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeNewsstandContentAvailability| UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    }
-    */
+    }*/
     
-   
+    
+    UNUserNotificationCenter *center = [UNUserNotificationCenter          currentNotificationCenter];
+     center.delegate = self;
+    
+    
+    
     [FIRApp configure];
-    // [END configure_firebase]
+        // [END configure_firebase]
 
-    // [START set_messaging_delegate]
+        // [START set_messaging_delegate]
     [FIRMessaging messaging].delegate = self;
-    // [END set_messaging_delegate]
-
-    // Register for remote notifications. This shows a permission dialog on first run, to
-    // show the dialog at a more appropriate time move this registration accordingly.
-    // [START register_for_notifications]
-
-    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
-    UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert |
-        UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
-    [[UNUserNotificationCenter currentNotificationCenter]
-        requestAuthorizationWithOptions:authOptions
-        completionHandler:^(BOOL granted, NSError * _Nullable error) {
-          // ...
-        }];
-
-    [application registerForRemoteNotifications];
-    // [END register_for_notifications]
+        // [END set_messaging_delegate]
     
+    [application registerForRemoteNotifications];
     
     return YES;
 }
-
-
-// [START receive_message]
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-    fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-  // If you are receiving a notification message while your app is in the background,
-  // this callback will not be fired till the user taps on the notification launching the application.
-  // TODO: Handle data of notification
-
-  // With swizzling disabled you must let Messaging know about the message, for Analytics
-  // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
-
-  // [START_EXCLUDE]
-  // Print message ID.
-  if (userInfo[kGCMMessageIDKey]) {
-    NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
-  }
-  // [END_EXCLUDE]
-
-  // Print full message.
-  NSLog(@"%@", userInfo);
-
-  completionHandler(UIBackgroundFetchResultNewData);
-}
-
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-  // If you are receiving a notification message while your app is in the background,
-  // this callback will not be fired till the user taps on the notification launching the application.
-  // TODO: Handle data of notification
-
-  // With swizzling disabled you must let Messaging know about the message, for Analytics
-  // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
-
-  // [START_EXCLUDE]
-  // Print message ID.
-  if (userInfo[kGCMMessageIDKey]) {
-    NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
-  }
-  // [END_EXCLUDE]
-
-  // Print full message.
-  NSLog(@"%@", userInfo);
-}
-
-
-
-- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
-    NSLog(@"FCM registration token: %@", fcmToken);
-    // Notify about received token.
-    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:
-     @"FCMToken" object:nil userInfo:dataDict];
-    // TODO: If necessary send token to application server.
-    // Note: This callback is fired at each app startup and whenever a new token is generated.
-}
-
-
-// With "FirebaseAppDelegateProxyEnabled": NO
-- (void)application:(UIApplication *)application
-    didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    [FIRMessaging messaging].APNSToken = deviceToken;
-}
-
 
 - (bool)checkServer :(NSString *)port{
     //[DDLog addLogger:[DDTTYLogger sharedInstance]];
@@ -277,8 +204,6 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     {
         DDLogError(@"Error starting HTTP Server: %@", error);
         
-        [LocalizeHelper saveToUserDefaults:@"server_error" obj:@"true"];
-        [self stopServer];
         
     }
 }
@@ -293,10 +218,24 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
    
 }
 
+
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+
+    
+    
+    completionHandler(UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge);
+    
+    
+    
+    
+}
+
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void (^)(void))completionHandler{
     
+    
+    NSLog( @"Handle push from foreground" );
     
     NSString * userInfo = response.notification.request.content.userInfo[@"path"];
            if (userInfo) {
@@ -335,8 +274,79 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     [notificationAlert show];*/
                
            }
+   
     
- 
+    
+ }
+
+
+
+
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+}
+
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+    [httpServer stop];
+}
+
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    [self startServer];
+
+}
+
+
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+}
+
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+  // If you are receiving a notification message while your app is in the background,
+  // this callback will not be fired till the user taps on the notification launching the application.
+  // TODO: Handle data of notification
+
+  // With swizzling disabled you must let Messaging know about the message, for Analytics
+  // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
+
+  // [START_EXCLUDE]
+  // Print message ID.
+  if (userInfo[kGCMMessageIDKey]) {
+    NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
+  }
+  // [END_EXCLUDE]
+
+  // Print full message.
+  NSLog(@"%@", userInfo);
+}
+
+- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
+    NSLog(@"FCM registration token: %@", fcmToken);
+    // Notify about received token.
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:
+     @"FCMToken" object:nil userInfo:dataDict];
+    // TODO: If necessary send token to application server.
+    // Note: This callback is fired at each app startup and whenever a new token is generated.
+}
+
+- (void)application:(UIApplication *)application
+    didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [FIRMessaging messaging].APNSToken = deviceToken;
 }
 
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification:(UNNotificationResponse *)response withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
@@ -365,48 +375,6 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     
     
     
-}
-
-
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-}
-
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-
-    [httpServer stop];
-}
-
-
-
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-  NSLog(@"Unable to register for remote notifications: %@", error);
-}
-
-
-
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    [self startServer];
-
-}
-
-
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 

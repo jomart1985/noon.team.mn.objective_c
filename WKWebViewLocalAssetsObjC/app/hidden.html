@@ -306,18 +306,28 @@ return "done";
 
 
 
- if(read_Setting("lang", "null", "all")!="null"){
-	 
-	 
-	 
-           append_index();
 
-
-         }
-         else{
+        if(read_Setting("lang", "null", "all")=="null")
+         {
          
      change_lang();
          
+         }
+         else  if(read_Setting("permission_alert", "null", "all")=="null")
+         {
+             
+             
+             var obj = {event: "permission", arg: "null"};
+              window.webkit.messageHandlers.observer.postMessage(JSON.stringify(obj));
+             
+             
+         }
+         else{
+           
+                 
+                       append_index();
+
+
          }
 
 
