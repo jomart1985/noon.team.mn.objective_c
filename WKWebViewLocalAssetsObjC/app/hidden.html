@@ -317,8 +317,16 @@ return "done";
          {
              
              
-             var obj = {event: "permission", arg: "null"};
-              window.webkit.messageHandlers.observer.postMessage(JSON.stringify(obj));
+          if(typeof window.webkit != 'undefined') {
+      
+          var obj = {event: "permission", arg: "null"};
+           window.webkit.messageHandlers.observer.postMessage(JSON.stringify(obj));
+           
+           save_Setting('permission_alert', "done", 'all');
+		   }else{
+		    append_index();
+		   }
+		  
              
              
          }
