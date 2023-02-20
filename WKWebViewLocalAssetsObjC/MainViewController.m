@@ -2706,14 +2706,9 @@ return self;
                
            }];
               
-              if([[LocalizeHelper readUserDefaults:@"show_intro"] isEqual:@"null"]){
-                        
-                  Intro *intro = [[Intro alloc] init];
-                  [intro showIntroWithCrossDissolve];
-                  intro.show_intro= true;
-                  [LocalizeHelper go_to_vc:intro];
-                  }
-              
+              ViewController*vc = [[ViewController alloc] init];
+              //vc.showAlertEnabled= true;
+              [LocalizeHelper go_to_vc:vc];
               
               
           }
